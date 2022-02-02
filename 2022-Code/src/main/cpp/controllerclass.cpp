@@ -25,8 +25,10 @@
     bXbuttonreleasedC1 = controller1 -> GetXButtonReleased();
     bYbuttonreleasedC1 = controller1 -> GetYButtonReleased();
 
-    controller1->GetLeftTriggerAxis();
-    controller1->GetRightTriggerAxis();
+    dleftstickXC1 = controller1->GetLeftX();
+    dleftstickYC1 = controller1->GetLeftY();  
+    drightstickXC1 = controller1->GetRightX();
+    drightstickYC1 = controller1->GetRightY(); 
 
     dlefttriggerC1 = controller1 -> GetLeftTriggerAxis();
     drighttriggerC1 = controller1 -> GetRightTriggerAxis();
@@ -60,13 +62,13 @@
     bXbuttonreleasedC2 = controller2 ->GetXButtonReleased();
     bYbuttonreleasedC2 = controller2 ->GetYButtonReleased();
 
-    controller2->GetLeftTriggerAxis();
-    controller2->GetRightTriggerAxis();
+    dleftstickXC2 = controller2->GetLeftX();
+    dleftstickYC2 = controller2->GetLeftY();  
+    drightstickXC2 = controller2->GetRightX();
+    drightstickYC2 = controller2->GetRightY(); 
 
-    controller2->GetLeftX();
-    controller2->GetLeftY();  
-    controller2->GetRightX();
-    controller2->GetRightY(); 
+    dlefttriggerC2 = controller2->GetLeftTriggerAxis();
+    drighttriggerC2 = controller2->GetRightTriggerAxis();
 
     bleftbumperC2 = controller2 ->GetLeftBumper();
     brightbumperC2 = controller2 ->GetRightBumper();
