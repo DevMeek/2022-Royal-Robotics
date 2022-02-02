@@ -4,14 +4,22 @@
 
 #include "Robot.h"
 
-void Robot::RobotInit() {}
+DriveTrainClass * drivetrain;
+controllerclass * controller1;
+void Robot::RobotInit() {
+  drivetrain = new DriveTrainClass();
+  controller1 = new controllerclass();
+  drivetrain->initDriveTrainClass();
+}
 void Robot::RobotPeriodic() {}
 
 void Robot::AutonomousInit() {}
 void Robot::AutonomousPeriodic() {}
 
 void Robot::TeleopInit() {}
-void Robot::TeleopPeriodic() {}
+void Robot::TeleopPeriodic() {
+  drivetrain->TankDrive(controller1->dleftstickYC1, controller1->drightstickYC1);
+}
 
 void Robot::DisabledInit() {}
 void Robot::DisabledPeriodic() {}
