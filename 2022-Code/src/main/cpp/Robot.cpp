@@ -6,9 +6,11 @@
 
 DriveTrainClass * drivetrain;
 controllerclass * controller1;
+HangClass * hang;
 void Robot::RobotInit() {
   drivetrain = new DriveTrainClass();
   controller1 = new controllerclass();
+  hang = new HangClass();
   drivetrain->initDriveTrainClass();
 }
 void Robot::RobotPeriodic() {}
