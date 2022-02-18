@@ -3,8 +3,12 @@
 // the WPILib BSD license file in the root directory of this project.
 
 #include "Robot.h"
+#include "Feeder.h"
 
-void Robot::RobotInit() {}
+Feeder * FeederClass;
+void Robot::RobotInit() {
+  FeederClass = new Feeder();
+}
 void Robot::RobotPeriodic() {}
 
 void Robot::AutonomousInit() {}
@@ -17,7 +21,9 @@ void Robot::DisabledInit() {}
 void Robot::DisabledPeriodic() {}
 
 void Robot::TestInit() {}
-void Robot::TestPeriodic() {}
+void Robot::TestPeriodic() 
+FeederClass->runFeeder(controllerClass->dLeftStickYC2);
+}
 
 #ifndef RUNNING_FRC_TESTS
 int main() {
