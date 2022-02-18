@@ -21,6 +21,7 @@ void Robot::AutonomousPeriodic() {}
 void Robot::TeleopInit() {}
 void Robot::TeleopPeriodic() {
   drivetrain->TankDrive(controller1->dleftstickYC1, controller1->drightstickYC1);
+  hang->runHang(controller1->brightbumperC1, controller1->bleftbumperC1);
 }
 
 void Robot::DisabledInit() {}
