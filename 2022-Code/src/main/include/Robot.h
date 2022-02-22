@@ -7,6 +7,7 @@
 #include <frc/TimedRobot.h>
 #include "DriveTrain.h"
 #include "controllerclass.h"
+#include "hang.h"
 
 class Robot : public frc::TimedRobot {
  public:
