@@ -3,12 +3,12 @@
  DriveTrainClass::DriveTrainClass()
 
 {
-mLeft1 = new TalonFX(0);
-mLeft2 = new TalonFX(0);
+mLeft1 = new TalonFX(11);
+mLeft2 = new TalonFX(12);
 mLeft3 = new TalonFX(0);
 
-mRight1 = new TalonFX(0);
-mRight2 = new TalonFX(0);
+mRight1 = new TalonFX(13);
+mRight2 = new TalonFX(14);
 mRight3 = new TalonFX(0);
 }
 
@@ -28,8 +28,8 @@ void DriveTrainClass::TankDrive(double L, double R)
 {
 mLeft1->Set(ControlMode::PercentOutput, L); 
 mLeft2->Set(ControlMode::PercentOutput, L); 
-mLeft3->Set(ControlMode::PercentOutput, L); 
+//mLeft3->Set(ControlMode::PercentOutput, L); 
 mRight1->Set(ControlMode::PercentOutput, R); 
 mRight2->Set(ControlMode::PercentOutput, R); 
-mRight3->Set(ControlMode::PercentOutput, R); 
+//mRight3->Set(ControlMode::PercentOutput, R); 
 }
