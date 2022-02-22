@@ -5,6 +5,8 @@
 #pragma once
 
 #include <frc/TimedRobot.h>
+#include "DriveTrain.h"
+#include "controllerclass.h"
 
 class Robot : public frc::TimedRobot {
  public:
