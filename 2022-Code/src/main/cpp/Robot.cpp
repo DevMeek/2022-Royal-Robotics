@@ -9,7 +9,7 @@
 #include "Feeder.h"
 #include "controllerclass.h"
 #include "DriveTrain.h"
-#include "limelight.h"
+// #include "limelight.h"
 
   Feeder * FeederClass;
 
@@ -17,7 +17,7 @@ DriveTrainClass * drivetrain;
 controllerclass * controller1;
 
 HangClass * hang;
-class limelight * limelight;
+// class limelight * limelight;
 
 void Robot::RobotInit() {
 
@@ -29,7 +29,7 @@ void Robot::RobotInit() {
 
 
   FeederClass = new Feeder();
-limelight = new  limelight();
+// limelight = new  limelight();
 
 }
 void Robot::RobotPeriodic() {}
@@ -40,13 +40,13 @@ void Robot::AutonomousPeriodic() {}
 void Robot::TeleopInit() {}
 void Robot::TeleopPeriodic() {
 
-   limelight->getHorizontal(controller1->bAbuttonpressedC1);
+   //limelight->getHorizontal(controller1->bAbuttonpressedC1);
   drivetrain->TankDrive(controller1->dleftstickYC1, controller1->drightstickYC1);
 
   hang->runHang(controller1->brightbumperC1, controller1->bleftbumperC1);
   FeederClass->runFeeder(controllerClass->dLeftStickYC2); 
 // drivetrain->TankDrive(controller1->dleftstickYC1 + limelight->steeringAdjust, controller1->drightstickYC1 - limelight->steeringAdjust);
-
+  drivetrain->LimelightDrive(controller1->bAbuttonpressedC1)
 }
 
 void Robot::DisabledInit() {}

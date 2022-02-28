@@ -1,6 +1,8 @@
 #include "DriveTrain.h"
 
- DriveTrainClass::DriveTrainClass()
+std::shared_ptr<nt::NetworkTable> table = nt::NetworkTableInstance::GetDefault().GetTable("limelight");
+
+DriveTrainClass::DriveTrainClass()
 
 {
 mLeft1 = new TalonFX(11);
@@ -32,4 +34,33 @@ mLeft2->Set(ControlMode::PercentOutput, L);
 mRight1->Set(ControlMode::PercentOutput, R); 
 mRight2->Set(ControlMode::PercentOutput, R); 
 //mRight3->Set(ControlMode::PercentOutput, R); 
+}
+
+void DriveTrainClass::LimelightDrive(bool button)
+{
+    Kp = -0.1f;
+    minCommand = 0.05f;
+    tx = table->GetNumber("tx",0.0);
+    table->PutNumber("ledMode", 3);
+    table->PutNumber("camMode", 0);
+    steeringAdjust = 0.0f;
+    if (button == 1){
+        if (tx > 1.0){
+            steeringAdjust = Kp*-tx - minCommand;
+            mLeft1->Set(ControlMode::PercentOutput,-steeringAdjust); 
+            mLeft2->Set(ControlMode::PercentOutput, -steeringAdjust); 
+            mRight1->Set(ControlMode::PercentOutput, steeringAdjust); 
+            mRight2->Set(ControlMode::PercentOutput, steeringAdjust); 
+        }
+        else if (tx < 1.0){
+            steeringAdjust = Kp*-tx + minCommand;
+            mLeft1->Set(ControlMode::PercentOutput,-steeringAdjust); 
+            mLeft2->Set(ControlMode::PercentOutput, -steeringAdjust); 
+            mRight1->Set(ControlMode::PercentOutput, steeringAdjust); 
+            mRight2->Set(ControlMode::PercentOutput, steeringAdjust); 
+        }
+    }
+    else{
+        steeringAdjust = 0;
+    }
 }
