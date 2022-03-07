@@ -12,6 +12,11 @@ void GTADrive (double, double);
 void LimelightDrive (bool);
 private:
 
+float Kp; //constant
+float minCommand; //smallest amount robot will move
+float tx; 
+float steeringAdjust;
+
 TalonFX *mLeft1;
 TalonFX *mLeft2;
 TalonFX *mLeft3;

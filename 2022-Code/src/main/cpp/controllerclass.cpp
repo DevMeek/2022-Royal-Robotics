@@ -1,13 +1,13 @@
 #include "controllerclass.h"
 
- controllerclass::controllerclass()
+controllerclass::controllerclass()
 
 {
     controller1 = new XboxController(1);
     controller2 = new XboxController(2);
 }
 
-    void controllerclass::readcontroller1()
+void controllerclass::readcontroller1()
 
 {
     bAbuttonrawC1 = controller1 -> GetRawButton(a_button);
@@ -81,7 +81,7 @@
 
 }
 
-    void  controllerclass::update()
+void  controllerclass::update()
 {
     readcontroller1();
     readcontroller2();

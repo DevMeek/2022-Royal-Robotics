@@ -1,5 +1,7 @@
 #include "DriveTrain.h"
+#include <iostream>
 
+using namespace std;
 std::shared_ptr<nt::NetworkTable> table = nt::NetworkTableInstance::GetDefault().GetTable("limelight");
 
 DriveTrainClass::DriveTrainClass()
@@ -38,29 +40,37 @@ mRight2->Set(ControlMode::PercentOutput, R);
 
 void DriveTrainClass::LimelightDrive(bool button)
 {
+    int x = 1000;
     Kp = -0.1f;
-    minCommand = 0.05f;
+    minCommand = 0.001f;
     tx = table->GetNumber("tx",0.0);
     table->PutNumber("ledMode", 3);
     table->PutNumber("camMode", 0);
     steeringAdjust = 0.0f;
+    cout<<tx<<endl;
     if (button == 1){
-        if (tx > 1.0){
+        if (tx > 0){
             steeringAdjust = Kp*-tx - minCommand;
-            mLeft1->Set(ControlMode::PercentOutput,-steeringAdjust); 
-            mLeft2->Set(ControlMode::PercentOutput, -steeringAdjust); 
-            mRight1->Set(ControlMode::PercentOutput, steeringAdjust); 
-            mRight2->Set(ControlMode::PercentOutput, steeringAdjust); 
+            cout<<steeringAdjust<<endl;
+            mLeft1->Set(ControlMode::PercentOutput,steeringAdjust*x); 
+            mLeft2->Set(ControlMode::PercentOutput, steeringAdjust*x); 
+            mRight1->Set(ControlMode::PercentOutput, steeringAdjust*x); 
+            mRight2->Set(ControlMode::PercentOutput, steeringAdjust*x);
+            cout<<"turning"<<endl;
         }
-        else if (tx < 1.0){
+        if (tx < 0){
             steeringAdjust = Kp*-tx + minCommand;
-            mLeft1->Set(ControlMode::PercentOutput,-steeringAdjust); 
-            mLeft2->Set(ControlMode::PercentOutput, -steeringAdjust); 
-            mRight1->Set(ControlMode::PercentOutput, steeringAdjust); 
-            mRight2->Set(ControlMode::PercentOutput, steeringAdjust); 
+            cout<<steeringAdjust<<endl;
+            mLeft1->Set(ControlMode::PercentOutput,steeringAdjust*x); 
+            mLeft2->Set(ControlMode::PercentOutput, steeringAdjust*x); 
+            mRight1->Set(ControlMode::PercentOutput, steeringAdjust*x); 
+            mRight2->Set(ControlMode::PercentOutput, steeringAdjust*x); 
+            cout<<"turning"<<endl;
         }
+        
     }
-    else{
-        steeringAdjust = 0;
+    if(button == 0){
+        //steeringAdjust = 0;
+        cout<<"not turning"<<endl;
     }
 }
