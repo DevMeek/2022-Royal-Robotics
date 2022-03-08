@@ -7,7 +7,7 @@ class HangClass
 public: 
     HangClass();
     void initHangClass();
-    void runHang (bool, bool);
+    void runHang (bool,bool,bool,bool);
 
 private:
     TalonSRX *mLeft1;

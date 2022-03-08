@@ -15,6 +15,7 @@
     bXbuttonrawC1 = controller1 -> GetRawButton(x_button);
     bYbuttonrawC1 = controller1 -> GetRawButton(y_button);
 
+
     bAbuttonpressedC1 = controller1 -> GetAButtonPressed();
     bBbuttonpressedC1 = controller1 -> GetBButtonPressed();
     bXbuttonpressedC1 = controller1 -> GetXButtonPressed();
@@ -78,6 +79,8 @@
 
     bleftbumperreleasedC2 = controller2 ->GetLeftBumperReleased();
     brightbumperreleasedC2 = controller2 ->GetRightBumperReleased();
+
+    bstartbuttonC2 = controller2->GetStartButton();
 
 }
 

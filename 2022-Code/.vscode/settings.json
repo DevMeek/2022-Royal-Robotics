@@ -15,6 +15,7 @@
     "**/*~": true
   },
   "C_Cpp.default.configurationProvider": "vscode-wpilib",
+<<<<<<< Updated upstream
   "files.associations": {
     "array": "cpp",
     "atomic": "cpp",
@@ -79,4 +80,14 @@
     "cinttypes": "cpp",
     "typeinfo": "cpp"
   }
+=======
+<<<<<<< HEAD
+  "C_Cpp.errorSquiggles": "Disabled"
+=======
+  "C_Cpp.errorSquiggles": "Disabled",
+  "files.associations": {
+    "*.inc": "cpp"
+  }
+>>>>>>> Cierra
+>>>>>>> Stashed changes
 }

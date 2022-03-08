@@ -8,6 +8,11 @@
 #include "DriveTrain.h"
 #include "controllerclass.h"
 #include "hang.h"
+#include "Shooter.h"
+#include "Feeder.h"
+#include "limelight.h"
+#include "Intake.h"
+#include "pneumatic.h"
 
 class Robot : public frc::TimedRobot {
  public:
@@ -25,4 +30,5 @@ class Robot : public frc::TimedRobot {
 
   void TestInit() override;
   void TestPeriodic() override;
+  double i;
 };
