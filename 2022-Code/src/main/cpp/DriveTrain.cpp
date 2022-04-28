@@ -40,37 +40,38 @@ mRight2->Set(ControlMode::PercentOutput, R);
 
 void DriveTrainClass::LimelightDrive(bool button)
 {
-    int x = 1000;
+    
     Kp = -0.1f;
-    minCommand = 0.001f;
+    minCommand = 0.05f;
     tx = table->GetNumber("tx",0.0);
     table->PutNumber("ledMode", 3);
     table->PutNumber("camMode", 0);
     steeringAdjust = 0.0f;
     cout<<tx<<endl;
-    if (button == 1){
+    //cout<<button<<endl;
+    if (button > 0){
         if (tx > 0){
             steeringAdjust = Kp*-tx - minCommand;
             cout<<steeringAdjust<<endl;
-            mLeft1->Set(ControlMode::PercentOutput,steeringAdjust*x); 
-            mLeft2->Set(ControlMode::PercentOutput, steeringAdjust*x); 
-            mRight1->Set(ControlMode::PercentOutput, steeringAdjust*x); 
-            mRight2->Set(ControlMode::PercentOutput, steeringAdjust*x);
+            mLeft1->Set(ControlMode::PercentOutput,steeringAdjust); 
+            mLeft2->Set(ControlMode::PercentOutput, steeringAdjust); 
+            mRight1->Set(ControlMode::PercentOutput, steeringAdjust); 
+            mRight2->Set(ControlMode::PercentOutput, steeringAdjust);
             cout<<"turning"<<endl;
         }
         if (tx < 0){
             steeringAdjust = Kp*-tx + minCommand;
             cout<<steeringAdjust<<endl;
-            mLeft1->Set(ControlMode::PercentOutput,steeringAdjust*x); 
-            mLeft2->Set(ControlMode::PercentOutput, steeringAdjust*x); 
-            mRight1->Set(ControlMode::PercentOutput, steeringAdjust*x); 
-            mRight2->Set(ControlMode::PercentOutput, steeringAdjust*x); 
+            mLeft1->Set(ControlMode::PercentOutput,steeringAdjust); 
+            mLeft2->Set(ControlMode::PercentOutput, steeringAdjust); 
+            mRight1->Set(ControlMode::PercentOutput, steeringAdjust); 
+            mRight2->Set(ControlMode::PercentOutput, steeringAdjust); 
             cout<<"turning"<<endl;
         }
         
     }
     if(button == 0){
-        //steeringAdjust = 0;
-        cout<<"not turning"<<endl;
+        steeringAdjust = 0;
+        // cout<<"not turning"<<endl;
     }
 }
